@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Special+Elite&display=swap" rel="stylesheet">
+    <title>Tribute to Ravindra Kaushik - The Black Tiger</title>
+    <style>
+        /* Root variables for consistent theming */
+        :root {
+            font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color-scheme: light;
+            background-color: #0a192f;
+            --accent-color: #64ffda;
+            --text-primary: #e6f1ff;
+            --text-secondary: #8892b0;
+            --bg-dark: #112240;
+        }
+
+        /* Base styles and typography */
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: var(--text-primary);
+        }
+
+        /* Container layout */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero section styling */
+        .hero {
+            background: linear-gradient(45deg, #0a192f, #112240);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .classified-stamp {
+            position: absolute;
+            top: 20px;
+            right: -60px;
+            background: #ff4444;
+            color: white;
+            padding: 8px 80px;
+            transform: rotate(45deg);
+            font-family: 'Special Elite', cursive;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--accent-color);
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Profile image styling */
+        .profile-img {
+            max-width: 320px;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            border: 3px solid var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.02);
+        }
+
+        .content {
+            background: var(--bg-dark);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Quote section styling */
+        .quote {
+            font-family: 'Special Elite', cursive;
+            font-size: 1.4rem;
+            color: var(--accent-color);
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            background: rgba(100, 255, 218, 0.05);
+            border-radius: 0 12px 12px 0;
+        }
+
+        .quote-author {
+            font-size: 1rem;
+            margin-top: 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Timeline section styling */
+        .timeline {
+            margin: 3rem 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(100, 255, 218, 0.05);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            background: rgba(100, 255, 218, 0.08);
+        }
+
+        .year {
+            background: var(--accent-color);
+            color: var(--bg-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .event {
+            flex: 1;
+            background: rgba(100, 255, 218, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        /* Achievement section styling */
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .achievement-card {
+            background: rgba(100, 255, 218, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .achievement-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+
+        /* Classified Info. section styling */
+        .classified {
+            background: rgba(100, 255, 218, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        .classified-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .security-level {
+            color: #ff4444;
+            font-family: 'Special Elite', cursive;
+            font-size: 0.9rem;
+        }
+
+        .label {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .interesting-facts ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .interesting-facts li {
+            margin: 1rem 0;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+
+        .interesting-facts li::before {
+            content: "►";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+        }
+
+        /* Footer styling */
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        .footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #fff;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .timeline-item {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .classified-stamp {
+                font-size: 0.8rem;
+                padding: 5px 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="classified-stamp">TOP SECRET</div>
+            <h1>Ravindra Kaushik</h1>
+            <p>Code Name: The Black Tiger | 1952-2001</p>
+            <img src="https://upload.wikimedia.org/wikipedia/en/9/98/Ravinder_Kaushik_former_RAW_agent.jpg" 
+                 alt="Ravindra Kaushik" class="profile-img">
+        </div>
+        
+        <!-- Quote Section -->
+        <div class="content">
+            <div class="quote">
+                "Some battles are fought behind enemy lines in complete silence."
+                <div class="quote-author">- The Black Tiger</div>
+            </div>
+
+
+            <!-- Classified Info. Section -->
+            <div class="classified">
+                <div class="classified-header">
+                    <h3>CLASSIFIED INFORMATION</h3>
+                    <div class="security-level">Security Level: Top Secret</div>
+                </div>
+                <div class="file-content">
+                    <p><span class="label">Code Name:</span> Black Tiger</p>
+                    <p><span class="label">Cover Identity:</span> Nabi Ahmad Shakir</p>
+                    <p><span class="label">Operation Duration:</span> 1975-1983</p>
+                    <p><span class="label">Status:</span> Deceased (2001)</p>
+                </div>
+            </div>
+
+
+            <!-- Timeline Section -->
+            <div class="timeline">
+                <h2>Mission Timeline</h2>
+                <div class="timeline-item">
+                    <div class="year">1952</div>
+                    <div class="event">Born in Sri Ganganagar, Rajasthan</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1975</div>
+                    <div class="event">Recruited by RAW at age 23</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1976</div>
+                    <div class="event">Completed extensive training in Delhi</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1977</div>
+                    <div class="event">Successfully infiltrated Pakistan Army</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1979</div>
+                    <div class="event">Awarded 'Black Tiger' title by PM Indira Gandhi</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1983</div>
+                    <div class="event">Cover compromised during operation</div>
+                </div>
+            </div>
+
+
+            <!-- Achievement Section -->
+            <div class="achievements">
+                <h2>Remarkable Achievements</h2>
+                <div class="achievement-grid">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🎭</div>
+                        <h3>Master of Disguise</h3>
+                        <p>Perfectly adopted Pakistani identity and customs</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">📚</div>
+                        <h3>Language Expert</h3>
+                        <p>Mastered Urdu and studied Islamic theology</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">⭐</div>
+                        <h3>Military Success</h3>
+                        <p>Rose to become commissioned officer in enemy ranks</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🏅</div>
+                        <h3>National Honor</h3>
+                        <p>Received special recognition from Prime Minister</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legacy Section -->
+            <div class="legacy">
+                <h2>Legacy</h2>
+                <p>Ravindra Kaushik's extraordinary service to India remains largely classified, but his contribution to national security was immense. He provided crucial intelligence that helped India maintain strategic advantage during critical periods. His dedication and sacrifice represent the highest traditions of intelligence service.</p>
+                <p>Despite facing extreme adversity after his cover was compromised, Kaushik maintained his dignity and never betrayed his country's secrets. His life story continues to inspire future generations of intelligence officers.</p>
+            </div>
+
+            <!-- Facts Section -->
+            <div class="interesting-facts">
+                <h2>Did You Know?</h2>
+                <ul>
+                    <li>Before joining RAW, Kaushik was a theater artist</li>
+                    <li>He was the highest-ranking spy in Pakistan's military history</li>
+                    <li>His cover identity was so perfect that even his Pakistani colleagues never suspected his true nationality</li>
+                    <li>He transmitted critical information through secret channels for over 8 years</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer">
+            <p>In memory of India's greatest spy</p>
+            <p>Developed with ❤️ by Kushagra | <a href="https://github.com/TechnoGhost01" target="_blank">GitHub</a></p>
+        </div>
+    </div>
+</body>
+</html>
